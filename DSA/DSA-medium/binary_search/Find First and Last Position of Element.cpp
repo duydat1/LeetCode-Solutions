@@ -6,7 +6,6 @@ public:
     vector<int> searchRange(vector<int>& nums, int target) {
         int ans_first = -1;
         int ans_last = -1;
-
         // chặn đầu 
         int l = 0, r = nums.size() - 1;
         while(l <= r) {
