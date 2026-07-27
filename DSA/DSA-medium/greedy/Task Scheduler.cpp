@@ -7,11 +7,12 @@ public:
         vector<int> dem (26,0);
         for(char x : tasks)
             dem[x - 'A']++; // đổi thành số 
-        int max_dem = *max_element(dem.begin() , dem.end()); // tìm số xuất hiện nhiều nhất 
-        int count_max_dem = count(dem.begin() , dem.end() , max_dem); // xem có bao nhiêu số cùng max 
+        int max_dem = *max_element(dem.begin() , dem.end()); // tìm số lớn nhất
+        int count_max_dem = count(dem.begin() , dem.end() , max_dem); // xem có bao nhiêu số cùng số lượng xuất hiện
         int ans = (max_dem-1)*(n +1) +count_max_dem;
-        
-        return max(ans , (int)tasks.size()); // = (int)tasks.size() nếu n=0 
+        // (max_dem-1) : khoảng cách giữa các lần chạy task nhiều nhất        
+        // Mỗi khoảng cách cần n + 1 ô (task chính + n khoảng trống)
+        return max(ans , (int)tasks.size()); 
     }
 };
 
