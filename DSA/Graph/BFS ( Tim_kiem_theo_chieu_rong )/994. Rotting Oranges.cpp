@@ -11,7 +11,7 @@ public:
         queue<pair<int , int>> pq; 
         for(int i=0 ; i<n ; i++)
             for(int j=0 ; j<m ; j++){
-                if(grid[i][j] == 2) pq.push({i,j}); // Đếm xem có bao nhiêu số 2 để duyệt qua từng đấy số lượng
+                if(grid[i][j] == 2) pq.push({i,j}); // Đếm xem có bao nhiêu số 2 <=> số lượng cam thối HIỆN TẠI
                 else if (grid[i][j] == 1) fruit++; // Đếm xem có bao nhiêu số 1 
             }
 
@@ -30,8 +30,8 @@ public:
                     if(nx>=0 && nx<n && ny>=0 && ny<m && grid[nx][ny] == 1){ // || là toang ngay :)))
                         grid[nx][ny] = 2;
                         fruit--;
-                        pq.push({nx,ny}); // push thêm vào để nếu pop() hết 2 r mà chưa duyệt qua hết maxtri thì sẽ tự động cung cấp thêm  
-                        check = true; // nếu thừa thì for đã tự end r , ko phải lo qua ram 
+                        pq.push({nx,ny}); // Cam thối ở lần cũ đã xóa hết , thêm cam MỚI THỐI vào
+                        check = true; 
                     }
                 }
             }
