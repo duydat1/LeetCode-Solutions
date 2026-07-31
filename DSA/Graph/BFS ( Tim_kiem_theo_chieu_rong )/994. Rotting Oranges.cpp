@@ -27,6 +27,7 @@ public:
                 for(int k=0 ; k<4 ; k++){
                     int nx = x + xx[k];// Tạo ra nx , ny sau đó nó sẽ lặp qua if bên dưới để biến toàn bộ số 1 ở 4 hướng thành 2
                     int ny = y + yy[k];
+                    
                     if(nx>=0 && nx<n && ny>=0 && ny<m && grid[nx][ny] == 1){ // || là toang ngay :)))
                         grid[nx][ny] = 2;
                         fruit--;
