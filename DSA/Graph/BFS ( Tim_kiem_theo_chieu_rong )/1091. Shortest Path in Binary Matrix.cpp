@@ -11,12 +11,12 @@ public:
         grid[0][0] = 1; //  Đánh dấu là đã đi qua
         q.push({0,0});
 
-        int xx[8] = {1,-1,0,0,1,1,-1,-1};
+        int xx[8] = {1,-1,0,0,1,1,-1,-1}; // Quét 8 hướng
         int yy[8] = {0,0,1,-1,1,-1,1,-1};
         while(!q.empty()){
             auto [x,y] = q.front() ; q.pop();
             int ans = grid[x][y];
-            if(x == n-1 && y == m-1) return ans;
+            if(x == n-1 && y == m-1) return ans;    
             for(int k=0 ; k<8 ; k++){
                 int nx = x + xx[k];
                 int ny = y + yy[k];
