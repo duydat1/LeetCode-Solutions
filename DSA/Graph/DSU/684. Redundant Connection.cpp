@@ -9,16 +9,16 @@ public:
         check.resize(n+1);
         for(int i=1 ; i<=n ; i++) check[i] = i;
         for(auto const& edge : edges){
-            int u = dsu(edge[0]);
-            int v = dsu(edge[1]);
+            int u = find(edge[0]);
+            int v = find(edge[1]);
             if(u == v ) return edge;
             else check[u] = v;
         }
         return {};
     }
-    int dsu(int i){
+    int find(int i){
         if(check[i] == i) return i;
-        return check[i] = dsu(check[i]);
+        return check[i] = find(check[i]);
     }
 };
 
