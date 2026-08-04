@@ -7,19 +7,20 @@ public:
     bool equationsPossible(vector<string>& equations) {
         parent.resize(26);  
         for(int i=0 ; i<26 ; i++) parent[i] = i;
+
         for(auto& equa : equations){
             if(equa[1] == '='){
-                int u = equa[0] - 'a';
-                int v = equa[3] - 'a';
-                if(u!=v)
-                    parent[u] = v ;
+                int u = find(equa[0] - 'a');
+                int v = find(equa[3] - 'a');
+                if( u!=v ) // biết là = nhau r nma khác tên , đổi giá trị ở tên u = giá trị v 
+                    parent[u] = v ; 
             }
         }
         for (auto eq : equations)
             if(eq[1] == '!'){
-                int u = eq[0] - 'a';
-                int v = eq[3] - 'a';
-                if(find(u) == find(v))
+                int u = find(eq[0] - 'a');
+                int v = find(eq[3] - 'a');
+                if(u == v) // giá trị = nhau mà đề cho != là toang r 
                     return false;
             }
         return true;
