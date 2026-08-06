@@ -1,0 +1,7 @@
+
+
+
+
+ ** CHÚ Ý :
+Đừng bao giờ gọi find() trên một đỉnh ngay sau khi vừa thay đổi parent của đỉnh đó ở dòng trên,
+trừ khi đã lưu sẵn cái Root ban đầu của nó vào một biến tạm!
