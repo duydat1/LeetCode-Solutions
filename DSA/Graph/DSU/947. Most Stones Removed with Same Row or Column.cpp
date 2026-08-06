@@ -6,7 +6,8 @@ class Solution {
 public:
     int removeStones(vector<vector<int>>& stones) {
         int n = (int)stones.size();
-        for(int i=0 ; i<n ; i++) parent[i] = i;
+        // for(int i=0 ; i<n ; i++) parent[i] = i;
+        // <=> if(parent.find(x) == parent.end()) parent[x] = x; ở hàm int find 
 
         for(auto& stone : stones){
             int x = find(stone[0]);
