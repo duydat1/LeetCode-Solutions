@@ -21,6 +21,7 @@ public:
 
         while(!pq.empty()){
             auto [d,u] = pq.top(); pq.pop();
+            if(d == end_node) return d ;
             if(d < dist[u]) continue; // bé hơn thì bỏ qua vì t đang cần tìm cái lớn nhất 
 
             for(auto& [v,w] : adj[u]){ // v là đỉnh đầu , w là trọng số 
