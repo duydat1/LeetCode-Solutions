@@ -11,13 +11,16 @@ public:
         int sum = 0;
         
         for(int i=0 ; i<(int)courses.size() ; i++){
-            if(!max_pq.empty() && courses[i][1] < courses[i][0] + sum && courses[i][0] < max_pq.top() ){
-                sum -= max_pq.top();
-                max_pq.pop();
-            }
+            if(courses[i][1] >= courses[i][0] + sum){// so sánh thời gian phải kết thúc với thời gian phải dùng thực tế 
                 max_pq.push(courses[i][0]);// lưu thời gian học 
                 sum += courses[i][0];
-            
+            }
+            else if(!max_pq.empty() && courses[i][1] < courses[i][0] + sum && courses[i][0] < max_pq.top() ){
+                sum -= max_pq.top();
+                max_pq.pop();
+                max_pq.push(courses[i][0]);// lưu thời gian học 
+                sum += courses[i][0];
+            } 
         }
         return (int)max_pq.size() ;
     }

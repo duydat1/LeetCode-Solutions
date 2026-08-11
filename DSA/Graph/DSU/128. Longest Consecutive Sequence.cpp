@@ -31,6 +31,8 @@ public:
                 }
             }
         }
+// Đừng bao giờ gọi find() trên một đỉnh ngay sau khi vừa thay đổi parent của đỉnh đó ở dòng trên,trừ khi đã lưu sẵn cái Root ban đầu của nó vào một biến tạm!
+
         int ans =0 ;
         for(int i=0 ; i<n ; i++){
             ans = max(ans , sz[find(i)]); // Duyệt toàn bộ để tìm max size 
