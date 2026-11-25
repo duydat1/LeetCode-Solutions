@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//EASY
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        sort(nums1.begin() , nums1.end());
+        sort(nums2.begin() , nums2.end());
+        vector<int> ans ; 
+        int n = nums1.size() , m = nums2.size() ; 
+        int i = 0 , j = 0 ;
+
+        while(i < n && j < m ){
+            if(nums1[i] == nums2[j]){
+                if(ans.empty() || ans.back() != nums1[i] ) {
+                    ans.push_back(nums1[i]);
+                }
+                i++;
+                j++;
+            }
+            else if(nums1[i] < nums2[j]) i++;
+            else j++;
+        }
+        return ans ; 
+    }
+};
+
+int main(){     
+        
+    Solution sol ; 
+    vector<int> nums1 = {4, 9, 5};
+    vector<int> nums2 = {9, 4, 9, 8, 4};
+    vector<int> ans = sol.intersection(nums1,nums2);
+    for(auto a:ans ) cout << a << " , ";
+    return 0 ;
+}
+
+
+
+
+
+
